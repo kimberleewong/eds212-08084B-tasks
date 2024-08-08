@@ -1,0 +1,49 @@
+---
+title: "r-exploration-data"
+author: "Kimmy Wong"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+## load libraries
+```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+
+## explore data
+```{r}
+names(diamonds)
+
+dim(diamonds)
+
+summary(diamonds)
+
+head(diamonds)
+
+tail(diamonds)
+
+skim(diamonds)
+```
+
+## plot some diamonds
+```{r}
+# normal pairs plot
+ggpairs(diamonds)
+
+# scatterplot with price as a function of carat
+
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point()
+
+# histogram with carat
+
+ggplot(data = diamonds, aes(x = carat)) +
+  geom_histogram()
+
+# boxplot with clarity and price
+ggplot(data = diamonds, aes(x = clarity, y = price)) +
+  geom_boxplot()
+```
+
